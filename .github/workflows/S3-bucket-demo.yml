@@ -12,8 +12,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: ap-south-1
-      - name: code static code to S3
-        run: |
-          aws s3 sync ./ s3://amxn-s3-demo-992483131285/ \
-          --exclude "*" \
-          --include "index.html"
+      - name: deploy static code to S3
+        run: aws s3 sync ./ s3://amxn-s3-demo-992483131285/ --exclude "*"
+  --include "index.html"
+
